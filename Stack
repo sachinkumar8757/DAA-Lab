@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Stack {
+	int top = -1;
+	int max = 5;
+	int a[] = new int[5];
+	Scanner sc = new Scanner(System.in);
+
+	void push() {
+		int item;
+		System.out.println("Enter item to be inserted");
+		item = sc.nextInt();
+		if (top == max) {
+			System.out.println("Stack overflow");
+		} else {
+			top++;
+			a[top] = item;
+		}
+	}
+
+	void pop() {
+		if (top == -1) {
+			System.out.println("Stack underflow");
+		} else {
+
+			System.out.println("deleted element is: " + a[top--]);
+		}
+	}
+
+	void display() {
+		if (top == -1) {
+			System.out.println("Stack empty");
+		} else {
+			System.out.println("elements are");
+			for (int i = top; i >= 0; i--) {
+				System.out.println(a[i]);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int ch;
+		Scanner sc = new Scanner(System.in);
+		Stack s1 = new Stack();
+		for (;;) {
+			System.out.println("Stack operation menu");
+			System.out.println("1:push\n2:pop\n3:display\n4:exit");
+			System.out.println("Enter your choice");
+			ch = sc.nextInt();
+			switch (ch) {
+				case 1:
+					s1.push();
+					break;
+				case 2:
+					s1.pop();
+					break;
+				case 3:
+					s1.display();
+					break;
+				case 4:
+					System.exit(0);
+				default:
+					System.out.println("invalid choice");
+			}
+		}
+	}
+
+}
