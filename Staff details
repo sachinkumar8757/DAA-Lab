@@ -1,0 +1,122 @@
+import java.util.Scanner;
+public class Staff {
+     public String id,name,phone,salary;
+    Scanner sc=new Scanner(System.in);
+    void read()
+    {
+    	System.out.println("Enter Staff id");
+    	id=sc.next();
+    	System.out.println("Enter Staff name");
+    	name=sc.next();
+    	System.out.println("Enter Staff phone");
+    	phone=sc.next();
+    	System.out.println("Enter Staff salary");
+    	salary=sc.next();
+    }
+    void display()
+    {
+    	System.out.println("Staff id="+id);
+    	System.out.println("Staff name="+name);
+    	System.out.println("Staff phone="+phone);
+    	System.out.println("Staff salary="+salary);
+    }
+}
+    class Teaching extends Staff{
+    	String domain;
+    	int publication;
+    	void read()
+    	{
+    		super.read();
+    		System.out.println("Enter domain");
+    		domain=sc.next();
+    		System.out.println("Enter no. of publication");
+    		publication=sc.nextInt();
+    	}
+    	void display()
+    	{
+    		super.display();
+    		System.out.println("domains="+domain);
+    		System.out.println("publication="+publication);
+    	}
+    }
+    class Technical extends Staff
+    {
+    	String skills[];
+    	void read()
+    	{
+    		super.read();
+    		System.out.println("Enter Skills");
+    		skills=sc.next().split(",");
+    	}
+    	void display()
+    	{
+    		super.display();
+    		System.out.print("Skills=");
+    		for(int i=0;i<skills.length;i++)
+    		{
+    			System.out.print(skills[i]+" ");
+    		}
+    		System.out.println();
+    	}
+    }
+    class Contract extends Staff
+    {
+    	int period;
+    	void read()
+    	{
+    		super.read();
+    		System.out.println("Enter period");
+    		period=sc.nextInt();
+    	}
+    	void display()
+    	{
+    		super.display();
+    		System.out.println("period="+period);
+    	}
+    }
+	
+  
+  
+  class Program{
+	public static void main(String[] args) {
+        Teaching [] teach=new Teaching[3];
+        Technical [] tech=new Technical[3];
+        Contract [] cont=new Contract[3];
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("Enter details of "+(i+1)+" teaching staff");
+        	teach[i]=new Teaching();
+        	teach[i].read();
+        }
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("Enter details of "+(i+1)+" teachnical staff");
+        	tech[i]=new Technical();
+        	tech[i].read();
+        }
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("Enter details of "+(i+1)+" contract staff");
+        	cont[i]=new Contract();
+        	cont[i].read();
+        }
+        
+        //*****************printing details of all categories************************
+        System.out.println("_____________details of all 3 categories of staff_________________");
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("details of "+(i+1)+" teaching staff");
+        	teach[i].display();
+        }
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("details of "+(i+1)+" techical staff");
+        	tech[i].display();
+        }
+        for(int i=0;i<3;i++)
+        {
+        	System.out.println("details of "+(i+1)+" contract staff");
+        	cont[i].display();
+        }
+	  }
+}
